@@ -11,7 +11,7 @@ ActiveRecord::Base.transaction do
   Employee.create(fname: "Susan", lname:"Mao", supervisor_id: 1)
   Employee.create(fname: "Larry", lname:"Ho", supervisor_id: 1)
   Employee.create(fname: "Jessica", lname:"Huang", supervisor_id: 1)
-  Team.create(name: "QA department", superviser_id: 1)
+  Team.create(name: "QA department", supervisor_id: 1)
   TeamMembership.create(employee_id: 1, team_id: 1)
   TeamMembership.create(employee_id: 2, team_id: 1)
   TeamMembership.create(employee_id: 3, team_id: 1)
