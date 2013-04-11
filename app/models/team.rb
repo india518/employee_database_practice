@@ -1,6 +1,8 @@
 class Team < ActiveRecord::Base
   attr_accessible :name, :supervisor_id
   
+  validates :name, :supervisor_id, :presence => true
+  
   has_many :memberships, :class_name => "TeamMembership"
   has_many :members, :through => :memberships, :source => :employee
   

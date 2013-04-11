@@ -1,0 +1,27 @@
+<%= form_for(@employee) do |f| %>
+	<p>
+	<%= f.label :fname, "First Name: " %>
+	<%= f.text_field :fname%>
+	</p>
+	<p>
+	<%= f.label :lname, "Last Name: " %>
+	<%= f.text_field :lname %>
+	</p>
+
+	<p><!-- Checkboxes to select Teams! -->
+	<% Team.all.each do |team| %>
+	  <%= check_box_tag(
+	  "employee[team_ids][]", #key for params hash
+	  team.id, #value for above key in params hash
+	  @employee.team_ids.include?(team.id), #whether or not it is pre-checked
+	  :id => "employee_team_ids_#{team.id}" # HTML id for label
+	  ) %>
+	  <%= label_tag "employee_team_ids_#{team.id}", team.name %>
+	  <br />
+	<% end %>
+	<%= hidden_field_tag "employee[team_ids][]" << "" %>
+	</p>
+
+	<p><%= f.submit %></p>
+	
+<% end %>

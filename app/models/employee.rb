@@ -1,5 +1,7 @@
 class Employee < ActiveRecord::Base
-  attr_accessible :fname, :lname, :supervisor_id
+  attr_accessible :fname, :lname, :supervisor_id, :team_ids
+  
+  validates :fname, :lname, :presence => true
   
   belongs_to :supervisor, :class_name => "Employee"
   has_many :subordinates, :foreign_key => "supervisor_id",
@@ -9,5 +11,8 @@ class Employee < ActiveRecord::Base
   
   has_many :supervised_teams, :foreign_key => "supervisor_id",
            :class_name => "Team", :inverse_of => :supervisor
-  
+           
+  def fullname
+    "#{fname} #{lname}"
+  end
 end
