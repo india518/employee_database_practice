@@ -5,6 +5,6 @@ class Team < ActiveRecord::Base
   has_many :members, :through => :memberships, :source => :employee
   
   belongs_to :supervisor, :foreign_key => "supervisor_id",
-             :class_name => "Employee"
+             :class_name => "Employee", :inverse_of => :supervised_teams
              
 end
