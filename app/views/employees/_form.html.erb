@@ -27,9 +27,43 @@
 	<%= hidden_field_tag "employee[team_ids][]" << "" %>
 	</p>
 	
+	<hr />
 	<!-- Here's the big thing, nested form for employee profile -->
+	<%= f.fields_for(:employee_profile) do |profile_form| %>
+	<p>
+		<%= profile_form.label :height_feet, "Height(feet)" %>
+		<%= profile_form.number_field :height_feet %>
+		<%= profile_form.label :height_inches, "Height(inches)" %>
+		<%= profile_form.number_field :height_inches %>
+	</p>
+	<p>
+		<%= profile_form.label :birth_date %>
+		<%= profile_form.date_select :birth_date, { :start_year => 1913 } %>
+	</p>
 	
-
+	<!-- TODO: Calculate this later, and have it as a hidden field! Waaa! -->
+	<p><%= profile_form.label :age %>
+		<%= profile_form.number_field :age %></p>
+		
+	<p>
+		<%= profile_form.label :favorite_day_of_week %>
+		<%= profile_form.select :favorite_day_of_week, Date::DAYNAMES %>
+	</p>
+	<p>
+		<%= profile_form.label :favorite_food %>
+		<%= profile_form.text_field :favorite_food %>
+	</p>	
+	<p>
+		<%= profile_form.label :salary %>
+		<%= profile_form.text_field :salary %>
+	</p>
+	<p>
+		<%= profile_form.label :photo %>
+		<%= profile_form.file_field :photo %>
+	</p>
+	<% end %>
+	
+	<hr />
 	<p><%= f.submit %></p>
 	
 <% end %>
