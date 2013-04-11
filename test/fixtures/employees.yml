@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  supervisor_id: 1
+  fname: MyString
+  lname: MyString
+
+two:
+  supervisor_id: 1
+  fname: MyString
+  lname: MyString
