@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130411180458) do
     t.integer  "age"
     t.string   "favorite_food"
     t.string   "favorite_day_of_week"
+    t.date     "birth_date"
     t.decimal  "salary"
     t.binary   "photo"
   end
