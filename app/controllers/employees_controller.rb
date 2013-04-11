@@ -38,6 +38,9 @@ class EmployeesController < ApplicationController
     end
   end
   
-  def destory
+  def destroy
+    @employee = Employee.find(params[:id])
+    @employee.destroy
+    redirect_to employees_url
   end
 end
