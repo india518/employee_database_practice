@@ -13,7 +13,6 @@ class EmployeesController < ApplicationController
     if @employee.save
       redirect_to employee_url(@employee)
     else
-      fail
       flash.now[:errors] = @employee.errors.full_messages
       render :new
     end
@@ -25,9 +24,18 @@ class EmployeesController < ApplicationController
   end
   
   def edit
+    @employee = Employee.find(params[:id])
   end
   
   def update
+    @employee = Employee.find(params[:id])
+    if @employee.save
+      fail
+      redirect_to employee_url(@employee)
+    else
+      flash.now[:errors] = @employee.errors.full_messages
+      render :edit
+    end
   end
   
   def destory

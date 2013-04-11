@@ -1,4 +1,6 @@
 <h2><%= @employee.fullname %></h2>
 
+<p><%= link_to "Edit information for #{@employee.fullname}",
+            edit_employee_url(@employee) %></p>
 
-<%= link_to "All Employees", employees_url %>
+<p><%= link_to "All Employees", employees_url %></p>

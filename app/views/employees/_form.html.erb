@@ -7,7 +7,12 @@
 	<%= f.label :lname, "Last Name: " %>
 	<%= f.text_field :lname %>
 	</p>
-
+	<p><!-- Select to assign a supervisor -->
+		<%= f.label :fullname, "Select a supervisor: " %>
+		<%= f.collection_select :supervisor_id,
+		   Employee.where(:supervisor_id => nil),
+		   :id, :fullname, {:include_blank => "None"} %>
+	</p>
 	<p><!-- Checkboxes to select Teams! -->
 	<% Team.all.each do |team| %>
 	  <%= check_box_tag(
