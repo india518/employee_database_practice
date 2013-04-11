@@ -1,0 +1,13 @@
+<h2><%= @team.name %></h2>
+
+<ul>
+	<% @team.members.each do |member| %>
+	<li><%= member.fullname %></li>
+	<% end %>
+</ul>
+
+<p><%= link_to "Edit information for #{@team.name}", edit_team_url(@team) %></p>
+
+<p><%= link_to "Delete Team", team_url(@team), :method => :delete %></p>
+
+<p><%= link_to "All Teams", teams_url %></p>

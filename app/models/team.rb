@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-  attr_accessible :name, :supervisor_id
+  attr_accessible :name, :supervisor_id, :member_ids, :employee_ids
   
   validates :name, :supervisor_id, :presence => true
   

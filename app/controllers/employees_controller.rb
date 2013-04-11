@@ -29,8 +29,7 @@ class EmployeesController < ApplicationController
   
   def update
     @employee = Employee.find(params[:id])
-    if @employee.save
-      fail
+    if @employee.update_attributes(params[:employee])
       redirect_to employee_url(@employee)
     else
       flash.now[:errors] = @employee.errors.full_messages
