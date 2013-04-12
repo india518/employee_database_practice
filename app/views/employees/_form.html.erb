@@ -24,12 +24,12 @@
 	  <%= label_tag "employee_team_ids_#{team.id}", team.name %>
 	  <br />
 	<% end %>
-	<%= hidden_field_tag "employee[team_ids][]" << "" %>
+	<%= hidden_field_tag "employee[team_ids][]" << "" %> <!--#REV: what's going on with this shovel?'-->
 	</p>
 	
 	<hr />
 	<!-- Here's the big thing, nested form for employee profile -->
-	<%= f.fields_for( :employee_profile ) do |profile_form| %>
+	<%= f.fields_for( :employee_profile ) do |profile_form| %> <!-- I always forget the f in front of f.fields for... nice -->
 	<p>
 		<%= profile_form.label :height_feet, "Height(feet)" %>
 		<%= profile_form.number_field :height_feet %>
@@ -38,12 +38,12 @@
 	</p>
 	<p>
 		<%= profile_form.label :birth_date %>
-		<%= profile_form.date_select :birth_date, { :start_year => 1913 } %>
+		<%= profile_form.date_select :birth_date, { :start_year => 1913 } %> 
 	</p>
 	
 	<!-- TODO: Calculate this later, and have it as a hidden field! Waaa! -->
 	<p><%= profile_form.label :age %>
-		<%= profile_form.number_field :age %></p>
+		<%= profile_form.number_field :age %></p> <!-- cool, but this was a stupid requirement. way to take it in pride -->
 		
 	<p>
 		<%= profile_form.label :favorite_day_of_week %>
