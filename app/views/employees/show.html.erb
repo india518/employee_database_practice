@@ -1,5 +1,7 @@
 <h2><%= @employee.fullname %></h2>
 
+<%= image_tag @employee.pic.url(:thumb) %>
+
 <p><%= link_to "Employee's Profile", employee_profile_url(@employee)%></p>
 
 <p><%= link_to "Edit information for #{@employee.fullname}",
