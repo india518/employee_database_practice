@@ -1,4 +1,4 @@
-class Employee < ActiveRecord::Base
+class Employee < ActiveRecord::Base #REV: looks good! like the fullname method.
   attr_accessible :fname, :lname, :supervisor_id, :team_ids,
                   :employee_profile_attributes
   
