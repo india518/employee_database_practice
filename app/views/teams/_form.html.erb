@@ -21,7 +21,7 @@
 	  <%= label_tag "team_member_ids_#{employee.id}", employee.fullname %>
 	  <br />
 	<% end %>
-	<%= hidden_field_tag "team[member_ids][]" << "" %>
+	<%= hidden_field_tag "team[member_ids][]" << "" %> <!-- REV: shovel thing?-->
 	</p>
 
 	<p><%= f.submit %></p>
