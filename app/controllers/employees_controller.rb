@@ -39,7 +39,7 @@ class EmployeesController < ApplicationController
   end
   
   def destroy
-    @employee = Employee.find(params[:id])
+    @employee = Employee.find(params[:id]) #REV: any reason you did this on two lines? just curious.
     @employee.destroy
     redirect_to employees_url
   end
